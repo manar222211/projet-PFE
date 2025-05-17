@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <body>
+    <div class="container-scroller">
+
+      <!-- partial:partials/_navbar.html -->
+      <app-header></app-header><br><br><br><br>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        
+<app-sidebar></app-sidebar>
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="fa fa-user-o">
+                  
+                </span> LEAVES LIST
+
+                <style>
+                  .right-container {
+                    display: flex;
+                    justify-content: flex-end; /* Aligns content to the right */
+                    
+                  }
+                  .custom-button {
+                    padding: 10px 20px;
+                    margin-left: 900px; 
+                  }
+                </style>
+                
+                <div class="right-container">
+                  <button type="button" class="btn btn-outline-primary btn-fw custom-button" 
+                          routerLink="/addleaves">Add Leaves</button>
+                </div>              </h3>
+              
+            </div>
+            
+            <div class="row">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <input type="text" [(ngModel)]="searchText" placeholder="Search...">
+            <button (click)="search()">Chercher par username</button>
+                   
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Number </th>
+
+                            <th> Name  </th>
+
+                            <th> Start Date </th>
+                            <th> End Date </th>
+                            <th>Leave Type </th>
+                            <th> Status </th>
+                            <th> Number Of Days </th>
+                            <th>Actions </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr  *ngFor="let X of listleaves |paginate:{itemsPerPage:3,currentPage:c}; ; let i =index"  > 
+
+<td>{{i+1}}</td>
+<td>
+  <img [src]="'http://localhost:8770/User/files/' + X.userDTO.photo" class="me-2" alt="image"> {{X.name}}
+</td>
+                            <td>
+                              <label class="badge badge-gradient-success">{{X.startDate}}</label> 
+                                 </td>
+                                 <td>
+                                  <label class="badge badge-gradient-success">{{X.endDate}}</label> 
+                                 </td>
+                            <td> {{X.leaveType}} </td>
+                            <td> {{X.status}} </td>
+                            <td> {{X.numberOfDays}} </td>
+
+                            <td>
+                              <button type="button" class="btn btn-gradient-info btn-rounded btn-fw" (click)=" detailleaves(X.id)"  >Info</button>
+                             
+                              <button type="button" class="btn btn-gradient-success btn-rounded btn-fw" (click)=" updateleaves(X.id)"  >Update</button>
+
+
+
+                            </td>
+
+                          </tr>
+                          
+                          
+                        </tbody>
+                      </table>
+                      <pagination-controls (pageChange)="c=$event"></pagination-controls>
+
+                    </div>
+                  </div>
+                </div>
+                <style>
+                  .custom-button {
+                    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+                    color: white;
+                    border: none;
+                    padding: 12px 25px;
+                    border-radius: 30px;
+                    font-weight: bold;
+                    font-size: 16px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s ease-in-out;
+                    text-transform: uppercase;
+                  }
+                  .custom-button:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+                  }
+                </style>
+                
+                <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw custom-button" 
+                        routerLink="/home">Back</button>
+              </div>
+            </div>
+            
+            
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+         <app-footer></app-footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      
+      <!-- page-body-wrapper ends -->
+    </div>
+    
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+   
+    <!-- End custom js for this page -->
+  </body>
+</html>

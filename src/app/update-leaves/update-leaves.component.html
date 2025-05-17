@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <app-header></app-header><br><br><br><br>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+<app-sidebar></app-sidebar>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="fa fa-user-o">
+                </span> UPDATE LEAVES
+              </h3>
+            </div>
+            <div class="card">
+              <div class="card-body">
+               
+                <br>
+                <form class="forms-sample" [formGroup]="form">
+                  <div class="form-group">
+                    <label for="exampleInputName1">Start Date</label>
+                    <input type="date" class="form-control" id="exampleInputName1" placeholder="StartDate"formControlName="startDate">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">End Date</label>
+                    <input type="date" class="form-control" id="exampleInputName1" placeholder="EndDate"formControlName="endDate">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">Leave Type</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="LeaveType"formControlName="leaveType">
+                  </div>
+                  <!--
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Number Of Days</label>
+                    <input type="number" class="form-control" id="exampleInputEmail3" placeholder="NumberOfDays"formControlName="numberOfDays">
+                  </div>
+-->
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">User</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="iduser"formControlName="iduser">
+                      <option *ngFor="let s of listusers" [value]="s.id">{{s.username}}</option>
+                      </select>
+                  </div>
+                <br>
+                <br>
+                  <button type="submit" class="btn btn-gradient-primary me-2" (click)="updateleaves()">Submit</button>
+                  <button class="btn btn-light">Cancel</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+         <app-footer></app-footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <!-- End custom js for this page -->
+  </body>
+</html>

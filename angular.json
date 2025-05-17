@@ -89,10 +89,23 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            
+            "build": {
+  "builder": "@angular-devkit/build-angular:browser",
+  "options": {
+    "allowedCommonJsDependencies": [
+      "sweetalert2"
+    ]
+  }
+}
+
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "69b01f07-9f96-445a-a660-dde622bc0280"
   }
 }

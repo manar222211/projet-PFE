@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <body>
+    <div class="container-scroller">
+
+      <!-- partial:partials/_navbar.html -->
+      <app-header></app-header><br><br><br><br>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        
+<app-sidebar></app-sidebar>
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="fa fa-user-o">
+                  
+                </span> DETAIL
+              </h3>
+              
+            </div>
+            
+            <div class="row">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            
+                            <th> name  </th>
+                            <th> startDate </th>
+                            <th> endDate </th>
+                            <th> leaveType </th>
+                            <th> status </th>
+                            <th> numberOfDays </th>
+                            <th>Actions </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr    > 
+
+
+                            <td>
+                              <img [src]="'http://localhost:8770/User/files/' + detailleaves.userDTO.photo" class="me-2" alt="image"> {{detailleaves.name}}
+                            </td>
+                            <td><label class="badge badge-gradient-success">{{detailleaves.startDate}}</label> 
+                                 </td>
+                            <td>
+                              <label class="badge badge-gradient-success">{{detailleaves.endDate}}</label>
+                            </td>
+                            <td> {{detailleaves.leaveType}} </td>
+                            <td> {{detailleaves.status}} </td>
+                            <td> {{detailleaves.numberOfDays}} </td>
+
+                            <td>
+                             
+                              <button type="button" class="btn btn-gradient-success btn-rounded  btn-sm p" *ngIf="roleuser==='admin'" title="Accept">
+                                <i class="fa fa-check-circle-o"></i>
+ 
+                              </button>
+                              
+
+                              <button type="button" class="btn btn-gradient-danger btn-rounded  btn-sm p" *ngIf="roleuser==='admin'"title= "Reject">
+                                <i class="fa fa-remove"></i>
+                              </button>
+
+                              
+                              
+                              <button type="button" class="btn btn-gradient-danger btn-rounded  btn-sm p"  
+                              (click)="deleteleaves(detailleaves.id)"  title="Delete">
+                              <i class="fa fa-trash-o"></i></button>
+                      
+
+
+
+                            </td>
+
+                          </tr>
+                          
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+         <app-footer></app-footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+   
+    <!-- End custom js for this page -->
+  </body>
+</html>

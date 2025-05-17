@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <app-header></app-header><br><br><br><br>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+<app-sidebar></app-sidebar>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+              
+                
+              </h3>
+            </div>
+            <div class="card">
+              <div class="card-body">
+              
+                <br>
+             
+                <h2 style="text-align:center">User Profile Card</h2>
+
+                <style>
+                  .profile-card {
+                    max-width: 800px;
+                    margin: 50px auto;
+                    display: flex;
+                    gap: 30px;
+                    background: #fff;
+                    border-radius: 20px;
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                    padding: 30px;
+                    align-items: center;
+                    transition: transform 0.3s ease;
+                  }
+                  
+                  .profile-card:hover {
+                    transform: translateY(-5px);
+                  }
+                  
+                  .profile-image img {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 5px solid #007bff;
+                  }
+                  
+                  .profile-details {
+                    flex: 1;
+                  }
+                  
+                  .profile-details h3 {
+                    margin-bottom: 10px;
+                    font-size: 28px;
+                    color: #333;
+                  }
+                  
+                  .profile-details .role {
+                    color: #888;
+                    font-weight: 600;
+                    margin-bottom: 15px;
+                  }
+                  
+                  .profile-details p {
+                    margin: 6px 0;
+                    font-size: 16px;
+                    color: #555;
+                  }
+                  
+                  .profile-details i {
+                    margin-right: 8px;
+                    color: #007bff;
+                  }
+                  
+                  .social-icons a {
+                    margin-right: 10px;
+                    color: #007bff;
+                    font-size: 18px;
+                    transition: color 0.3s;
+                  }
+                  
+                  .social-icons a:hover {
+                    color: #0056b3;
+                  }
+                  
+                  .update-button {
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    background: linear-gradient(135deg, #6a11cb, #2575fc);
+                    color: white;
+                    border: none;
+                    border-radius: 25px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition:  0.3s ease;
+                  }
+                  
+                  .update-button:hover {
+                    background: linear-gradient(135deg, #2575fc, #6a11cb);
+                  }
+                  
+                </style>
+                
+                <div class="profile-card">
+                  <div class="profile-image">
+                    <img [src]="'http://localhost:8770/User/files/' + datailemploye.photo"
+                         [alt]="datailemploye.firstname + ' ' + datailemploye.lastname">
+                  </div>
+                
+                  <div class="profile-details">
+                    <h3>{{ datailemploye.firstname }} {{ datailemploye.lastname }}</h3>
+                    <p class="role">{{ datailemploye.role }}</p>
+                    <p><i class="fa fa-envelope"></i> {{ datailemploye.email }}</p>
+                    <p><i class="fa fa-user"></i> {{ datailemploye.username }}</p>
+                    <p><i class="fa fa-phone"></i> {{ datailemploye.phone }}</p>
+                    <p><i class="fa fa-map-marker"></i> {{ datailemploye.adresse }}</p>
+                
+                    <div class="social-icons">
+                      <a href="#"><i class="fa fa-dribbble"></i></a>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                      <a href="#"><i class="fa fa-facebook"></i></a>
+                    </div>
+                
+                    <button class="update-button" (click)="updateadmin(datailemploye.id)">
+                      Update
+                    </button>
+                  </div>
+                </div>
+                
+                  
+            </div>
+        </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+         <app-footer></app-footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <!-- End custom js for this page -->
+  </body>
+</html>
