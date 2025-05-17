@@ -1,0 +1,23 @@
+
+camunda.bpm:
+  admin-user:
+    id: demo
+    password: demo
+    firstName: Demo
+
+    bpm:
+      history-level: none
+
+  historyTimeToLive: P30D
+  filter:
+    create: All tasks
+    logging:
+      level:
+        org.camunda: DEBUG
+
+#server:
+#  port: 8081
+
+#  camunda.bpm.run.cors:
+#    enabled: true
+#allowed-origins: http://localhost:8080
